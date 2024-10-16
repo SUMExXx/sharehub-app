@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Subtract16Regular } from '@fluentui/react-icons';
 
 interface GroupInfoBoxProps{
@@ -8,6 +8,18 @@ interface GroupInfoBoxProps{
 }
 
 const GroupInfoBox: React.FC<GroupInfoBoxProps> = ({groupId, groupName, groupDesc}) => {
+
+    const [copied, setCopied] = useState(false);
+
+    const copyCode = () => {
+        if(groupId){
+            window.electronAPI.copyToClipBoard(`${groupId}`);
+            setCopied(true);
+            setTimeout( () => {
+                setCopied(false);
+            }, 3000)
+        }
+    }
     
     return (
         <div className="flex px-[20px] py-[10px] border-t border-customDarkGrey2 gap-[20px] justify-start items-center w-full bg-customDarkGrey">
@@ -19,8 +31,10 @@ const GroupInfoBox: React.FC<GroupInfoBoxProps> = ({groupId, groupName, groupDes
                 <span className="text-customLightGrey">{groupDesc}</span>
             </div>
             <div className="flex justify-center items-center">
-                <button className="text-[#8E8E8E] rounded-[10px] p-[16px] transition-colors duration-200 hover:bg-customMediumGrey flex items-center justify-center">
-                    <Subtract16Regular />
+                <button onClick={copyCode} className="text-[#8E8E8E] rounded-[10px] p-[16px] transition-colors duration-200 hover:bg-customMediumGrey flex items-center justify-center min-w-[160px]">
+                    {
+                        copied?  <span>Code Copied</span>:<span>Invite to group</span>
+                    }
                 </button>
             </div>
         </div>

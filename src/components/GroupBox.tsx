@@ -25,7 +25,7 @@ const GroupBox: React.FC<GroupBoxProps> = ({groupIdProp, groupNameProp, groupDes
     }
     
     return (
-        <button onClick={setGroup} className="flex justify-start items-center p-[10px] gap-[10px] bg-customDarkGrey h-full w-full group rounded-[10px] transition-colors duration-200 hover:bg-customMediumGrey">
+        <button onClick={setGroup} className="flex justify-start items-center p-[10px] gap-[10px] bg-customDarkGrey w-full group rounded-[10px] transition-colors duration-200 hover:bg-customMediumGrey">
             <div className="flex justify-center items-center h-[40px] min-w-[40px] rounded-full bg-customMediumGrey group-hover:bg-customLightGrey transition-colors duration-200">
                 
             </div>

@@ -8,6 +8,8 @@ interface GroupContextType {
   setGroupName: React.Dispatch<React.SetStateAction<string>>;
   groupDesc: string;
   setGroupDesc: React.Dispatch<React.SetStateAction<string>>;
+  forceReload: string;
+  setForceReload: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GroupContext = createContext<GroupContextType | undefined>(undefined);
@@ -20,9 +22,10 @@ export const GroupProvider: React.FC<GroupProviderProps> = ({ children }) => {
   const [groupId, setGroupId] = useState<string>("");
   const [groupName, setGroupName] = useState<string>("");
   const [groupDesc, setGroupDesc] = useState<string>("");
+  const [forceReload, setForceReload] = useState<string>("");
 
   return (
-    <GroupContext.Provider value={{ groupId, setGroupId, groupName, setGroupName, groupDesc, setGroupDesc }}>
+    <GroupContext.Provider value={{ groupId, setGroupId, groupName, setGroupName, groupDesc, setGroupDesc, forceReload, setForceReload }}>
       {children}
     </GroupContext.Provider>
   );

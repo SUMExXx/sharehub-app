@@ -1876,9 +1876,9 @@
   integrity sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==
 
 "@types/react-dom@latest":
-  version "18.3.0"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.3.0.tgz"
-  integrity sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==
+  version "18.3.1"
+  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.3.1.tgz"
+  integrity sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==
   dependencies:
     "@types/react" "*"
 
@@ -2551,7 +2551,7 @@ available-typed-arrays@^1.0.7:
 
 axios@^1.7.7:
   version "1.7.7"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.7.7.tgz#2f554296f9892a72ac8d8e4c5b79c14a91d0a47f"
+  resolved "https://registry.npmjs.org/axios/-/axios-1.7.7.tgz"
   integrity sha512-S4kL7XrjgBmvdGut0sN3yJxqYzrDOnivkBiN0OFs6hLiUam3UPvswUo0kqGyhqUZGEOytHyumEdXsAkgCOUf3Q==
   dependencies:
     follow-redirects "^1.15.6"
@@ -2943,6 +2943,11 @@ clone@^1.0.2:
   version "1.0.4"
   resolved "https://registry.npmjs.org/clone/-/clone-1.0.4.tgz"
   integrity sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==
+
+clsx@^2.1.0:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz"
+  integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
 
 color-convert@^1.9.0:
   version "1.9.3"
@@ -5745,14 +5750,16 @@ multicast-dns@^7.2.5:
   dependencies:
     "@fluentui/react-components" "^9.54.17"
     "@fluentui/react-icons" "^2.0.260"
+    axios "^1.7.7"
     dotenv "^16.4.5"
     electron-squirrel-startup "^1.0.1"
-    myapp "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-myapp-1.0.0-5c24911d-86be-49ef-983f-3d08b1b08080-1728821390822/node_modules/myapp"
+    myapp "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-myapp-1.0.0-1267d9d3-1ec2-4b1b-bdd9-e94d456a24fc-1729108419347/node_modules/myapp"
     postcss "^8.4.47"
     postcss-loader "^8.1.1"
     react "^18.3.1"
     react-dom "^18.3.1"
-    sharehub-app "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-myapp-1.0.0-5c24911d-86be-49ef-983f-3d08b1b08080-1728821390822/node_modules/myapp"
+    react-toastify "^10.0.6"
+    sharehub-app "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-myapp-1.0.0-1267d9d3-1ec2-4b1b-bdd9-e94d456a24fc-1729108419347/node_modules/myapp"
 
 mz@^2.7.0:
   version "2.7.0"
@@ -6466,7 +6473,7 @@ proxy-addr@~2.0.7:
 
 proxy-from-env@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.1.0.tgz#e102f16ca355424865755d2c9e8ea4f24d58c3e2"
+  resolved "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz"
   integrity sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==
 
 pump@^3.0.0:
@@ -6538,6 +6545,13 @@ react-is@^17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-toastify@^10.0.6:
+  version "10.0.6"
+  resolved "https://registry.npmjs.org/react-toastify/-/react-toastify-10.0.6.tgz"
+  integrity sha512-yYjp+omCDf9lhZcrZHKbSq7YMuK0zcYkDFTzfRFgTXkTFHZ1ToxwAonzA4JI5CxA91JpjFLmwEsZEgfYfOqI1A==
+  dependencies:
+    clsx "^2.1.0"
 
 react-transition-group@^4.4.1:
   version "4.4.5"
@@ -7022,14 +7036,16 @@ shallow-clone@^3.0.0:
   dependencies:
     "@fluentui/react-components" "^9.54.17"
     "@fluentui/react-icons" "^2.0.260"
+    axios "^1.7.7"
     dotenv "^16.4.5"
     electron-squirrel-startup "^1.0.1"
-    myapp "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-sharehub-app-1.0.0-b871d04a-50b6-4821-81bb-dd20d3ed7395-1728821390833/node_modules/sharehub-app"
+    myapp "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-sharehub-app-1.0.0-c104b403-867c-436f-b714-7b21f67169dd-1729108419358/node_modules/sharehub-app"
     postcss "^8.4.47"
     postcss-loader "^8.1.1"
     react "^18.3.1"
     react-dom "^18.3.1"
-    sharehub-app "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-sharehub-app-1.0.0-b871d04a-50b6-4821-81bb-dd20d3ed7395-1728821390833/node_modules/sharehub-app"
+    react-toastify "^10.0.6"
+    sharehub-app "file:C:/Users/SUMExXx/AppData/Local/Yarn/Cache/v6/npm-sharehub-app-1.0.0-c104b403-867c-436f-b714-7b21f67169dd-1729108419358/node_modules/sharehub-app"
 
 shebang-command@^1.2.0:
   version "1.2.0"
