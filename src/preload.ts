@@ -14,4 +14,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
         return await ipcRenderer.invoke('save-image', { groupId, imageId })
     },
     copyToClipBoard: (text: string) => ipcRenderer.invoke('copy-to-clipboard', { text }),
+    uploadImage: async (groupId: string) => {
+        await ipcRenderer.invoke('upload-image', { groupId }).then(response => response)
+    },
 });

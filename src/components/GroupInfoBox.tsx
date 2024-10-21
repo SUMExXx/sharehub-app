@@ -20,6 +20,10 @@ const GroupInfoBox: React.FC<GroupInfoBoxProps> = ({groupId, groupName, groupDes
             }, 3000)
         }
     }
+
+    const refresh = () => {
+        window.location.reload();
+    }
     
     return (
         <div className="flex px-[20px] py-[10px] border-t border-customDarkGrey2 gap-[20px] justify-start items-center w-full bg-customDarkGrey">
@@ -30,8 +34,13 @@ const GroupInfoBox: React.FC<GroupInfoBoxProps> = ({groupId, groupName, groupDes
                 <span className="text-white">{groupName}</span>
                 <span className="text-customLightGrey">{groupDesc}</span>
             </div>
-            <div className="flex justify-center items-center">
-                <button onClick={copyCode} className="text-[#8E8E8E] rounded-[10px] p-[16px] transition-colors duration-200 hover:bg-customMediumGrey flex items-center justify-center min-w-[160px]">
+            <div className="flex justify-center items-center gap-[10px]">
+                <button onClick={refresh} className="text-[#8E8E8E] rounded-[10px] p-[10px] transition-colors duration-200 hover:bg-customMediumGrey flex items-center justify-center min-w-[160px]">
+                    {
+                        <span>Refresh</span>
+                    }
+                </button>
+                <button onClick={copyCode} className="text-[#8E8E8E] rounded-[10px] p-[10px] transition-colors duration-200 hover:bg-customMediumGrey flex items-center justify-center min-w-[160px]">
                     {
                         copied?  <span>Code Copied</span>:<span>Invite to group</span>
                     }
