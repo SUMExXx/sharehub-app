@@ -20,8 +20,6 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
 
     const [reload, setReload] = useState<boolean>(false);
 
-    const {forceReload, setForceReload} = useContext(GroupContext);
-
     const [text, setText] = useState<string>('');
 
     const [groupName, setGroupName] = useState<string>('');
@@ -85,9 +83,23 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
     }, []);
 
     useEffect(() => {
-        // if (groupsData) {
-        //     console.log("Groups data has been updated:", groupsData);
-        // }
+        const container = document.querySelector('.thin-scrollbar')  as HTMLElement;
+
+        function adjustMargin() {
+            if(container != null){
+                if (container.scrollHeight > container.clientHeight) {
+                    container.style.paddingRight = '10px'; // Add padding when scrollbar is present
+                } else {
+                    container.style.paddingRight = '0'; // Remove padding when scrollbar is not present
+                }
+            }
+        }
+
+        // Call the function on page load
+        adjustMargin();
+
+        // Optionally, call it on window resize
+        window.addEventListener('resize', adjustMargin);
     }, [groupsData]);
 
     const join = async () => {
@@ -107,8 +119,8 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                setForceReload(forceReload+"a");
                 setReload(!reload);
+                sessionStorage.setItem('groupId', text);
                 window.location.reload();
             })
         } catch (error) {
@@ -129,13 +141,15 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
                     throw new Error(`Invalid Code`);
                 }
 
-                if (!response.ok) {
+                if (response.status != 201) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
 
-                setForceReload(forceReload+"a");
-                setReload(!reload);
-                window.location.reload();
+                await response.json().then((responseData) => {
+                    console.log(responseData.gid)
+                    sessionStorage.setItem('groupId', responseData.gid);
+                    window.location.reload();
+                });
 
             })
         } catch (error) {
@@ -144,7 +158,7 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
     }
     
     return (
-        <div className="flex flex-col p-[10px] bg-customDarkGrey2 h-full md:w-[500px] w-[300px] duration-300 transition-transform rounded-tl-[10px]">
+        <div className="flex flex-col p-[10px] bg-customDarkGrey2 h-full md:w-[500px] w-[300px] duration-300 transition-transform rounded-tl-[10px] gap-[10px]">
             <div className="flex justify-between items-center p-[10px]">
                 <span className="text-white">Groups</span>
                 <button onClick={createGroupClick} className="text-white rounded-[10px] py-[8px] px-[16px] transition-colors duration-200 hover:bg-customMediumGrey bg-customDarkGrey flex items-center justify-center">
@@ -183,7 +197,7 @@ const GroupsBar: React.FC<GroupsBarProps> = ({userId}) => {
                 </div> :
                 <></>
             }
-            <div className="flex flex-col justify-start items-center w-full gap-[10px] h-full">
+            <div className="flex flex-col justify-start items-center w-full gap-[10px] h-full overflow-y-auto thin-scrollbar">
                 {   
                     groupsData?.groups.map((group, index) => 
                         <GroupBox key={index} groupIdProp={group.id} groupNameProp={group.name} groupDescProp={group.desc || ""} />

@@ -19,7 +19,15 @@ interface GroupProviderProps {
 }
 
 export const GroupProvider: React.FC<GroupProviderProps> = ({ children }) => {
-  const [groupId, setGroupId] = useState<string>("");
+
+  const data = sessionStorage.getItem('groupId');
+  
+  let gid = ""
+  if(data != null){
+    gid = data;
+  }
+
+  const [groupId, setGroupId] = useState<string>(gid);
   const [groupName, setGroupName] = useState<string>("");
   const [groupDesc, setGroupDesc] = useState<string>("");
   const [forceReload, setForceReload] = useState<string>("");

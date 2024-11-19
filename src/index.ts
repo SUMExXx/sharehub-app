@@ -1,5 +1,5 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-
+import path from 'path';
 import dotenv from 'dotenv';
 import initRoot from './methods/initRoot';
 import saveImage from './methods/saveImage';
@@ -30,6 +30,7 @@ const createWindow = (): void => {
     minHeight: 400,
     minWidth: 600,
     frame: false,
+    icon: path.join(__dirname, 'static/sharehub.ico'),
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
       nodeIntegration: true,
@@ -41,7 +42,7 @@ const createWindow = (): void => {
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

@@ -27,11 +27,15 @@ const GroupContentSection: React.FC<GroupContentSectionProps> = ({userId}) => {
     }, [groupContext]);
 
     const photoUpload = async () => {
-        await window.electronAPI.uploadImage(groupId).then((response: number) => {
-            if(response == 200){
-                console.log("good")
-            }
-        })
+        if(groupId != ""){
+            await window.electronAPI.uploadImage(groupId).then((response: number) => {
+                console.log(response)
+                if(response == 200){
+                    sessionStorage.setItem('groupId', groupId);
+                    window.location.reload();
+                }
+            })
+        }
     }
 
     return (

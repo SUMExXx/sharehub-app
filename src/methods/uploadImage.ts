@@ -64,9 +64,17 @@ const selectFile = async () => {
     };
 
     try {
-        const file = await dialog.showOpenDialog({
-            properties: ['openFile'],
-            filters: [{ name: 'Images', extensions: ['jpg', 'jpeg', 'png', 'gif'] }],
+        const file = await new Promise<{ canceled: boolean; filePaths: string[] }>((resolve, reject) => {
+            dialog.showOpenDialog({
+                properties: ['openFile'],
+                filters: [{ name: 'Images', extensions: ['jpg', 'jpeg', 'png', 'gif'] }],
+            }, (filePaths) => {
+                if (filePaths === undefined) {
+                    reject(new Error("No file selected"));
+                } else {
+                    resolve({ canceled: false, filePaths });
+                }
+            });
         });
 
         if (!file.canceled) {

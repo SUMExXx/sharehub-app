@@ -27,7 +27,7 @@ const App: React.FC = () => {
                         <div className="flex h-full w-full justify-center items-center">
                             <LeftSideBar/>
                             <div className="w-full h-full bg-customDarkGrey">
-                                <div className="w-full h-full bg-customDarkGrey3 rounded-tl-[10px] flex justify-center items-center">
+                                <div className="w-full h-[calc(100vh-40px)] bg-customDarkGrey3 rounded-tl-[10px] flex justify-center items-center">
                                     <GroupsBar userId={userId}/>
                                     <GroupContentSection userId={userId}/>
                                 </div>

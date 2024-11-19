@@ -72,8 +72,8 @@ const getPublicIP = async () => {
 }
 
 const updateIP = async () => {
-  // const ip = getPrivateIP();
-  const ip = await getPublicIP();
+  const ip = getPrivateIP();
+  // const ip = await getPublicIP();
   await fetch(`${env.API_BASE_URL}/users/updateUserDetails`, {
       method: "PUT",
       headers: {
